@@ -1,0 +1,17 @@
+version: '3'
+services:
+    ionic:
+        build: .
+        volumes:
+            - './app:/usr/src/app'
+#            - '/usr/src/app/node_modules'
+        ports:
+            - '8100:8100'
+        environment:
+            - COMPOSE_HTTP_TIMEOUT=200
+        command: sh -c " sleep 10000000000; yarn start"
+#        command: sh -c " ionic serve --devapp"
+
+volumes:
+  data-volume:
+
